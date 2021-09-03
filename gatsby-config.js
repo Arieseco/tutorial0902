@@ -14,6 +14,20 @@ module.exports = {
         path: `${__dirname}/blog`,
       }
     },
-    "gatsby-plugin-mdx",
+    //"gatsby-plugin-mdx",
+    {//gatsby-plugin-mdxでidを付与する設定
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+        gatsbyRemarkPlugins: [`gatsby-remark-autolink-headers`],
+      },
+    },
+    "gatsby-transformer-sharp",
+    { // ヘッダーにidを付与する
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [`gatsby-remark-autolink-headers`],
+      },
+    },
   ],
 };
